@@ -1,6 +1,6 @@
 <?php
 
-@include 'conn.php';
+@include 'crud/conn.php';
 
 session_start();
 session_unset();

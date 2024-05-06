@@ -1,6 +1,6 @@
 <?php
 
-@include 'conn.php';
+@include 'crud/conn.php';
 
 if(isset($_POST['submit'])){
 
@@ -42,7 +42,6 @@ if(isset($_POST['submit'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>registro</title>
 
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="style/style.css">
 
 </head>
@@ -63,10 +62,7 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="Email">
       <input type="password" name="password" required placeholder="Contraseña">
       <input type="password" name="cpassword" required placeholder="Confirmar contraseña">
-      <!--<select name="user_type">
-         <option value="user">user</option>
-         <option value="admin">admin</option>
-      </select>-->
+      
       <input type="submit" name="submit" value="Registrarse" class="form-btn">
       <p>¿Ya tienes una cuenta? <a href="login_form.php">Inicia sesion</a></p>
    </form>

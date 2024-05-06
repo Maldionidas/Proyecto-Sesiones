@@ -1,6 +1,6 @@
 <?php
 
-@include 'conn.php';
+@include 'crud/conn.php';
 
 session_start();
 
@@ -27,9 +27,8 @@ if(!isset($_SESSION['admin_name'])){
    <h3>hola, <span>administrador</span></h3>
    <h1> <span><?php echo $_SESSION['admin_name'] ?></span></h1>
    <p>Pagina de administrador</p>
-   <a href="login.php" class="btn">login</a>
-   <a href="register_form.php" class="btn">register</a>
-   <a href="crud.php" class="btn">CRUD</a>
+   <a href="registro.php" class="btn">Registrar nuevo</a>
+   <a href="crud/crud.php" class="btn">CRUD</a>
    <a href="logout.php" class="btn">logout</a>
 </div>
 
