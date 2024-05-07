@@ -21,7 +21,7 @@
   include "eliminar.php";
   ?>
   <div class="container fluid row ">
-    <form class="col-md-auto p-4" method="post">
+    <form class=" col col-lg-4 p-4" method="post">
       <h3 class="text-center text-secondary">Habitacion nueva</h3>
       <div class="mb-3">
         <label class="form-label">Tipo de habitacion</label>
@@ -41,6 +41,10 @@
 
       </div>
       <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input type="number" class="form-control" name="precio">
+      </div>
+      <div class="mb-3">
         <label class="form-label">Reservada</label>
         <select class="form-select" aria-label="Default select example" name="reservada">
           <option value="Si">Si</option>
@@ -52,13 +56,14 @@
       <button type="submit" class="btn btn-primary" name="agregar">Agregar</button>
     </form>
 
-    <div class="col p-2">
+    <div class="col p-2 m-auto">
       <table class="table table-hover">
         <thead class="table-dark">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Tipo</th>
             <th scope="col">Personas</th>
+            <th scope="col">Precio</th>
             <th scope="col">Reservada</th>
             <th> </th>
           </tr>
@@ -72,6 +77,7 @@
               <th scope="row"><?= $datos->id ?></th>
               <td><?= $datos->tipo ?></td>
               <td><?= $datos->personas ?></td>
+              <td><?= $datos->precio ?></td>
               <td><?= $datos->reservada ?></td>
               <td>
                 <a href="modificarFrom.php?id=<?= $datos->id ?>">Editar</a>

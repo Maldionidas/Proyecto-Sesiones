@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_name'])) {
          <h3>Hola, <span>usuario</span></h3>
          <h1>bienvenido <span><?php echo $_SESSION['user_name'] ?></span></h1>
          <p>Reservar habitaciones</p>
-         <a href='reservaciones.php' class='btn'>Reservar</a>
+         <a href='reserva/reservaciones.php' class='btn'>Reservar</a>
          <a href='logout.php' class='btn'>Cerrar sesion</a>
       </div>
 

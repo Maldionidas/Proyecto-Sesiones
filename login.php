@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
          header('location:admin.php');
 
       }elseif($row['type'] == 'user'){
-
+         $_SESSION['id_user'] = $row['id'];
          $_SESSION['user_name'] = $row['nombre'];
          header('location:user.php');
 
