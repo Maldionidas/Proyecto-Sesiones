@@ -8,6 +8,8 @@ if (!isset($_SESSION['user_name'])) {
     header('location:login.php');
 }
 
+
+
 ?>
 
 
@@ -54,6 +56,7 @@ if (!isset($_SESSION['user_name'])) {
     <div class="container-md pd-3 mt-5 ">
         <?php
         include "../crud/conn.php";
+        //include "rsvControlador.php";
         $llamar = $conn->query("select * from `habitaciones`");
 
         $inc = 0;
@@ -66,25 +69,37 @@ if (!isset($_SESSION['user_name'])) {
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse<?= $inc ?>" aria-expanded="true" aria-controls="collapse<?= $inc ?>">
-                            Habitacion <?= $datos->tipo ?> 
-                            <span class="badge text-bg-success">   Precio $<?=$datos->precio?></span>
+                            Habitacion <?= $datos->id ?>
+                            <span class="badge text-bg-success"> Precio $<?= $datos->precio ?></span>
                         </button>
-                        
+
                     </h2>
                     <div id="collapse<?= $inc ?>" class="accordion-collapse collapse ">
-                    <form method="post">
-                        <div class="accordion-body input-group">    
+                        <form method="post">
+                            <div class="accordion-body input-group">
                                 <span class="input-group-text">Fecha llega y salida</span>
-                                
-                                <input type="date"  class="form-control" name="ingreso<?= $inc ?>">
-                                <input type="date" aria-label="Last name" class="form-control" name="salida<?= $inc ?>">
-                                <a href="compra.php?id=<?= $datos->id ?>" class="btn btn-outline-secondary">RESERVAR</a>
-                        </div>
+
+                                <input type="date" class="form-control" name="ingreso">
+                                <input type="date" aria-label="Last name" class="form-control" name="salida">
+                                <button class="btn btn-outline-secondary" name="reservar">RESERVAR</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-        <?php }
+        <?php 
+        $idHabitacion = $datos->id;
+        if (isset($_POST['reservar'])) {
+            if (!empty($_POST['ingreso'] and !empty($_POST['salida']))) {
+                $finicio = $_POST['ingreso'];
+                $fsalida = $_POST['salida'];
+                header('location:compra.php?finicio='. $finicio.'&fsalida='. $fsalida.'&idhab='.$idHabitacion);
+            }else{
+                echo "Fecha vacia";
+            }
+            
+        }}
+        
         ?>
     </div>
 </body>
