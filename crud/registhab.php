@@ -1,4 +1,5 @@
 <?php 
+$message = '';
 if(isset($_POST["agregar"])){
     if(!empty($_POST["habitacion"]) and !empty($_POST["personas"])and !empty($_POST["precio"]) and !empty($_POST["reservada"])){
 
@@ -10,14 +11,17 @@ if(isset($_POST["agregar"])){
 
         $sql = $conn->query("INSERT INTO `habitaciones` ( `tipo`, `personas`, `precio`, `reservada`) VALUES ( '$tipohab', '$personas','$precio', '$resv'); ");
 
-        if($sql==1){
-            echo '<div class="alert alert-success">Habitacion registrada correctamente</div>';
-        }else{
-            echo '<div class="alert alert-danger">Error al registrar</div>';
+        if ($sql == 1) {
+            $message = "Habitacion registrada correctamente";
+            $alertClass = 'alert-success';
+        } else {
+            $message = "Error al registrar";
+            $alertClass = 'alert-danger';
         }
-        
-    }else{
-        echo '<div class="alert alert-danger">Algun campo es invalido</div>';
+
+    } else {
+        $message = "Algun campo es invalido";
+        $alertClass = 'alert-danger';
     }
 
 }

@@ -25,9 +25,7 @@ if (!isset($_SESSION['user_name'])) {
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    
 
     <nav class="navbar navbar-expand-md bg-body-tertiary ">
         <div class="container-fluid">
@@ -41,9 +39,6 @@ if (!isset($_SESSION['user_name'])) {
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../user.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Carrito</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="../logout.php">Logout</a>
@@ -81,19 +76,21 @@ if (!isset($_SESSION['user_name'])) {
 
                                 <input type="date" class="form-control" name="ingreso">
                                 <input type="date" aria-label="Last name" class="form-control" name="salida">
-                                <button class="btn btn-outline-secondary" name="reservar">RESERVAR</button>
+                                <input type="hidden" class="form-control" name="id"  value="<?= $datos->id ?>">
+                                <button class="btn btn-outline-secondary" name="reservar" >RESERVAR</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         <?php 
-        $idHabitacion = $datos->id;
+        //$idHabitacion = ;
         if (isset($_POST['reservar'])) {
             if (!empty($_POST['ingreso'] and !empty($_POST['salida']))) {
                 $finicio = $_POST['ingreso'];
                 $fsalida = $_POST['salida'];
-                header('location:compra.php?finicio='. $finicio.'&fsalida='. $fsalida.'&idhab='.$idHabitacion);
+                $id = $_POST['id'];
+                header('location:compra.php?finicio='. $finicio.'&fsalida='. $fsalida.'&idhab='.$id);
             }else{
                 echo "Fecha vacia";
             }
@@ -102,6 +99,35 @@ if (!isset($_SESSION['user_name'])) {
         
         ?>
     </div>
+    <script>
+    function validateForm() {
+        const fechaIngreso = document.getElementById('fechaIngreso').value;
+        const fechaSalida = document.getElementById('fechaSalida').value;
+
+        if (!fechaIngreso) {
+            alert('Por favor, seleccione la fecha de llegada.');
+            return false;
+        }
+
+        if (!fechaSalida) {
+            alert('Por favor, seleccione la fecha de salida.');
+            return false;
+        }
+
+        const dateIngreso = new Date(fechaIngreso);
+        const dateSalida = new Date(fechaSalida);
+
+        if (dateSalida <= dateIngreso) {
+            alert('La fecha de salida debe ser posterior a la fecha de llegada.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

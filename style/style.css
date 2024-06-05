@@ -13,21 +13,28 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   padding:20px;
+   padding:10px;
    padding-bottom: 60px;
+}
+.content{
+   width: 70%;
+   background-color:rgba(0, 0, 0, 0.719);
+   height: 300px;
+   border-radius: 5px;
 }
 
 .container .content{
    text-align: center;
+   padding-top: 20px;
 }
 
 .container .content h3{
    font-size: 30px;
-   color:#333;
+   color:#ccc2c2;
 }
 
 .container .content h3 span{
-   background: crimson;
+   background: rgb(74, 34, 167);
    color:#fff;
    border-radius: 5px;
    padding:0 15px;
@@ -35,16 +42,17 @@
 
 .container .content h1{
    font-size: 50px;
-   color:#333;
+   color:#ccc2c2;
 }
 
 .container .content h1 span{
-   color:crimson;
+   color:rgb(74, 34, 167);
 }
 
 .container .content p{
    font-size: 25px;
    margin-bottom: 20px;
+   color:#ccc2c2;
 }
 
 .container .content .btn{
@@ -58,7 +66,7 @@
 }
 
 .container .content .btn:hover{
-   background: crimson;
+   background: rgb(74, 34, 167);
 }
 
 .form-container{
@@ -102,15 +110,15 @@
 }
 
 .form-container form .form-btn{
-   background: #fbd0d9;
-   color:crimson;
+   background: #edd0fb;
+   color:rgb(74, 34, 167);
    text-transform: capitalize;
    font-size: 20px;
    cursor: pointer;
 }
 
 .form-container form .form-btn:hover{
-   background: crimson;
+   background: rgb(74, 34, 167);
    color:#fff;
 }
 
@@ -121,15 +129,16 @@
 }
 
 .form-container form p a{
-   color:crimson;
+   color:rgb(74, 34, 167);
 }
 
 .form-container form .error-msg{
    margin:10px 0;
    display: block;
-   background: crimson;
+   background: rgb(74, 34, 167);
    color:#fff;
    border-radius: 5px;
    font-size: 20px;
    padding:10px;
 }
+
