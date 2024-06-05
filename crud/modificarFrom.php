@@ -2,7 +2,7 @@
 include "conn.php";
 $id = $_GET["id"];
 
-$sql = $conn->query(" select * from habitaciones where id=$id");
+$sql = $conn->query(" select * from habitaciones where id= $id");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +45,8 @@ $sql = $conn->query(" select * from habitaciones where id=$id");
         if ($message !== '') {
             echo '<div id="message" class="alert ' . $alertClass . '">' . $message . '</div>';
         }
-        
-        while ($datos = $sql->fetch_object()) { ?>
+        $datos = $sql->fetch_object()
+         ?>
         <div class="mb-1">
             <label class="form-label">ID</label>
             <input type="text" class="form-control" disabled readonly value="<?= $datos->id ?>">
@@ -73,7 +73,7 @@ $sql = $conn->query(" select * from habitaciones where id=$id");
 
         </div>
         <?php
-        }
+        
         ?>
 
 

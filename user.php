@@ -70,7 +70,7 @@ if (!isset($_SESSION['user_name'])) {
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../user.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="user.php">Home</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="logout.php">Logout</a>
